@@ -68,8 +68,8 @@ func main() {
 			for number, name := range reversedPhoneBook {
 				fmt.Println(number, ":", name)
 			}
-			fmt.Println("===================================================")
-			break
+			fmt.Println("===================================================")		
 		}
+		break
 	}
 }
