@@ -38,7 +38,7 @@ func main() {
 
 }
 
-func mergeMaps(firsMap map[string]int, secondMap map[string]int) (resultMap map[string]int) {
+func mergeMaps(firsMap, secondMap map[string]int) (resultMap map[string]int) {
 
 	resultMap = firsMap
 
