@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-
+	fmt.Println("Hello World")
 }
 
 type Operation struct {
@@ -15,7 +17,7 @@ type Operation struct {
 	Description   string
 }
 
-var Operations []Operations
+var Operations []Operation
 
 func AddOperation(o Operation) {
 	Operations = append(Operations, o)
@@ -27,10 +29,10 @@ func GetOperatoinsFromConsole() Operation {
 	o.ID = 1
 	fmt.Println("Введите тип операции (income/outcome):")
 	fmt.Scan(&o.OperationType)
-	o.Categorey = "Salary"
-	o.Amount = 1000
-	o.CreatedAt = "10-06-2024"
-	o.Description = "Начисление зарплаты"
+	fmt.Scan(&o.Categorey)
+	fmt.Scan(&o.Amount)
+	//o.CreatedAt = "10-06-2024"
+	//o.Description = "Начисление зарплаты"
 
 	return o
 
