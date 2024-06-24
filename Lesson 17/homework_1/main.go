@@ -38,6 +38,7 @@ type Dog struct {
 func (d Dog) GetAnimalName() string {
 	return d.name
 }
+
 func (d Dog) MakeSound() {
 	fmt.Println(d.sound)
 }
@@ -50,6 +51,7 @@ type Cat struct {
 func (c Cat) GetAnimalName() string {
 	return c.name
 }
+
 func (c Cat) MakeSound() {
 	fmt.Println(c.sound)
 }
