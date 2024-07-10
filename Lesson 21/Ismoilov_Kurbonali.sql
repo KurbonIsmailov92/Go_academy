@@ -48,4 +48,4 @@ WHERE id = '12';
 
 DELETE
 FROM actions
-WHERE id = '2'
+WHERE id = '2';
