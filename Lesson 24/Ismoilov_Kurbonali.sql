@@ -22,16 +22,17 @@ WHERE b.publisher_id = p.id
 
 SELECT *
 FROM books
-WHERE pubplished_at BETWEEN '2021-01-01' AND '2022-12-31'
-  AND price > 20.00;
+WHERE pubplished_at BETWEEN '2000-01-01' AND '2022-12-31'
+  AND price > 9.00;
 
 SELECT *
 FROM books
-WHERE author like '%J%';
+WHERE author ILIKE '%c%';
 
 SELECT b.title,
        p.name,
        b.pubplished_at
 FROM books b,
      publishers p
-WHERE p.address = 'New York';
+WHERE b.publisher_id = p.id
+    AND p.address = 'New York';
