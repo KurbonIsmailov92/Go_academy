@@ -18,3 +18,5 @@ SELECT e.department  AS "Должность",
 FROM employees e
 GROUP BY e.department
 HAVING AVG(e.salary) > 50000;
+
+
