@@ -28,7 +28,12 @@ func ShowTodoList() {
 	tasksToShow := repository.GetAllTasks()
 
 	for id, task := range tasksToShow {
-		fmt.Println("ID:", id, "Name:", task.Name, "Memo:", task.Memo, "Date:", task.CreatedAt.Format(time.DateOnly), "Is Done:", task.IsDone)
+		fmt.Println(
+			"ID:", id,
+			"Name:", task.Name,
+			"Memo:", task.Memo,
+			"Date:", task.CreatedAt.Format(time.DateOnly),
+			"Is Done:", task.IsDone)
 	}
 
 }
