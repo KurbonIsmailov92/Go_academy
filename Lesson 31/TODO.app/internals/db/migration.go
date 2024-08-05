@@ -11,22 +11,10 @@ func MigrateTables() error {
 		return errors.New("Failed to begin transaction: " + err.Error())
 	}
 
-	_, err = tx.Exec(CreateUsersTableQuery)
-	if err != nil {
-		tx.Rollback()
-		return errors.New("Failed to create users table: " + err.Error())
-	}
-
 	_, err = tx.Exec(CreateTaskPrioritiesTableQuery)
 	if err != nil {
 		tx.Rollback()
 		return errors.New("Failed to create Priorities table: " + err.Error())
-	}
-
-	_, err = tx.Exec(SetTaskPrioritiesTableValuesQuery)
-	if err != nil {
-		tx.Rollback()
-		return errors.New("Failed to set priorities values to table: " + err.Error())
 	}
 
 	_, err = tx.Exec(CreateTasksTableQuery)

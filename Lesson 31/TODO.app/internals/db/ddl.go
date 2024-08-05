@@ -1,11 +1,6 @@
 package db
 
 const (
-	CreateUsersTableQuery = `CREATE TABLE IF NOT EXISTS users
-							(
-								id   SERIAL PRIMARY KEY,
-								name VARCHAR(30)
-							);`
 	CreateTaskPrioritiesTableQuery = `CREATE TABLE IF NOT EXISTS task_priorities
 								(
 									id       SERIAL PRIMARY KEY,
@@ -17,8 +12,8 @@ const (
 								title            VARCHAR NOT NULL,
 								description      TEXT,
 								task_priority_id INT REFERENCES task_priorities (id) NOT NULL,
-								user_id          INT REFERENCES users (id) NOT NULL ON DELETE CASCADE,
 								created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+								user_name        VARCHAR(30) NOT NULL,
 								is_done          BOOLEAN   DEFAULT FALSE,
 								done_at          TIMESTAMP DEFAULT NULL,
 								is_deleted       BOOLEAN   DEFAULT FALSE,
