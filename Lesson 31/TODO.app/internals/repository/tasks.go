@@ -23,7 +23,7 @@ func GetAllTasks() ([]models.Task, error) {
 	for rows.Next() {
 		var task models.Task
 		err := rows.Scan(&task.ID, &task.Title, &task.Description, &task.TaskPriority,
-			&task.UserName, &task.CreatedAt, &task.IsDone, &task.IsDeleted)
+			&task.UserName, &task.CreatedAt, &task.IsDone, &task.DoneAt, &task.IsDeleted, &task.DeletedAt)
 		if err != nil {
 			return nil, err
 		}
@@ -36,7 +36,7 @@ func GetTaskByID(taskID int) (task models.Task, err error) {
 
 	row := db.GetDBConnection().QueryRow(db.GetTasksByIDQuery, taskID)
 	err = row.Scan(&task.ID, &task.Title, &task.Description, &task.TaskPriority,
-		&task.UserName, &task.CreatedAt, &task.IsDone, &task.IsDeleted)
+		&task.UserName, &task.CreatedAt, &task.IsDone, &task.DoneAt, &task.IsDeleted, &task.DeletedAt)
 	if err != nil {
 		return models.Task{}, err
 	}
@@ -45,7 +45,7 @@ func GetTaskByID(taskID int) (task models.Task, err error) {
 }
 
 func UpdateTaskTitleByID(taskID int, newTitle string) error {
-	_, err := db.GetDBConnection().Exec(db.UpdateTaskTitleByIDQuery, taskID, newTitle)
+	_, err := db.GetDBConnection().Exec(db.UpdateTaskTitleByIDQuery, newTitle, taskID)
 	if err != nil {
 		return err
 	}
@@ -53,7 +53,7 @@ func UpdateTaskTitleByID(taskID int, newTitle string) error {
 }
 
 func UpdateTaskUserByID(taskID int, newUsername string) error {
-	_, err := db.GetDBConnection().Exec(db.UpdateTaskUserNameByIDQuery, taskID, newUsername)
+	_, err := db.GetDBConnection().Exec(db.UpdateTaskUserNameByIDQuery, newUsername, taskID)
 	if err != nil {
 		return err
 	}
@@ -61,7 +61,7 @@ func UpdateTaskUserByID(taskID int, newUsername string) error {
 }
 
 func UpdateTaskPriorityByID(taskID int, newPrID int) error {
-	_, err := db.GetDBConnection().Exec(db.UpdateTaskPriorityByIDQuery, taskID, newPrID)
+	_, err := db.GetDBConnection().Exec(db.UpdateTaskPriorityByIDQuery, newPrID, taskID)
 	if err != nil {
 		return err
 	}
@@ -69,7 +69,7 @@ func UpdateTaskPriorityByID(taskID int, newPrID int) error {
 }
 
 func UpdateTaskDescriptionByID(taskID int, newDescription string) error {
-	_, err := db.GetDBConnection().Exec(db.UpdateTaskDescriptionByIDQuery, taskID, newDescription)
+	_, err := db.GetDBConnection().Exec(db.UpdateTaskDescriptionByIDQuery, newDescription, taskID)
 	if err != nil {
 		return err
 	}
@@ -118,7 +118,7 @@ func GetDoneTasks() ([]models.Task, error) {
 	for rows.Next() {
 		var task models.Task
 		err := rows.Scan(&task.ID, &task.Title, &task.Description, &task.TaskPriority,
-			&task.UserName, &task.CreatedAt, &task.IsDone, &task.DoneAt, &task.IsDeleted)
+			&task.UserName, &task.CreatedAt, &task.IsDone, &task.DoneAt, &task.IsDeleted, &task.DeletedAt)
 		if err != nil {
 			return nil, err
 		}
@@ -136,7 +136,7 @@ func GetDeletedTasks() ([]models.Task, error) {
 	for rows.Next() {
 		var task models.Task
 		err := rows.Scan(&task.ID, &task.Title, &task.Description, &task.TaskPriority,
-			&task.UserName, &task.CreatedAt, &task.IsDone, &task.IsDeleted, &task.DeletedAt)
+			&task.UserName, &task.CreatedAt, &task.IsDone, &task.DoneAt, &task.IsDeleted, &task.DeletedAt)
 		if err != nil {
 			return nil, err
 		}

@@ -6,6 +6,40 @@ import (
 	"todo_app/internals/repository"
 )
 
+func printTasksToConsole(tasks []models.Task) {
+	fmt.Printf("\t|%-2s|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+		"ID", "Created at", "Title", "Description", "Priority",
+		"User", "Status", "Done at", "Deleted", "Deleted at")
+	fmt.Printf("\t|%-2s|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+		"--", "-----------------", "------------", "------------------------------",
+		"--------", "------------", "------", "-----------------", "--------", "-----------------")
+
+	for _, task := range tasks {
+
+		formatedCreatedAt := task.CreatedAt.Format("2006-01-02 15:04")
+		formatedDoneAt := task.DoneAt.Format("2006-01-02 15:04")
+		formatedDeletedAt := task.DeletedAt.Format("2006-01-02 15:04")
+
+		var formatedStatus, formatedDeletion string
+
+		if task.IsDone {
+			formatedStatus = "Done"
+		} else {
+			formatedStatus = "Undone"
+		}
+
+		if task.IsDeleted {
+			formatedDeletion = "Yes"
+		} else {
+			formatedDeletion = "No"
+		}
+
+		fmt.Printf("\t|%-2d|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+			task.ID, formatedCreatedAt, task.Title, task.Description, task.TaskPriority,
+			task.UserName, formatedStatus, formatedDoneAt, formatedDeletion, formatedDeletedAt)
+	}
+}
+
 func CreateNewTask() {
 	var task models.Task
 
@@ -50,9 +84,8 @@ func GetAllTasks() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	for _, task := range tasks {
-		fmt.Print(task, "\n")
-	}
+	printTasksToConsole(tasks)
+
 }
 
 func GetTaskByID(id int) {
@@ -60,7 +93,33 @@ func GetTaskByID(id int) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(task)
+	fmt.Printf("\t|%-2s|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+		"ID", "Created at", "Title", "Description", "Priority",
+		"User", "Status", "Done at", "Deleted", "Deleted at")
+	fmt.Printf("\t|%-2s|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+		"--", "-----------------", "------------", "------------------------------",
+		"--------", "------------", "------", "-----------------", "--------", "-----------------")
+	formatedCreatedAt := task.CreatedAt.Format("2006-01-02 15:04")
+	formatedDoneAt := task.DoneAt.Format("2006-01-02 15:04")
+	formatedDeletedAt := task.DeletedAt.Format("2006-01-02 15:04")
+
+	var formatedStatus, formatedDeletion string
+
+	if task.IsDone {
+		formatedStatus = "Done"
+	} else {
+		formatedStatus = "Undone"
+	}
+
+	if task.IsDeleted {
+		formatedDeletion = "Yes"
+	} else {
+		formatedDeletion = "No"
+	}
+
+	fmt.Printf("\t|%-2d|%-17s|%-12s|%-30s|%-8s|%-12s|%-6s|%-17s|%-8s|%-17s|\n",
+		task.ID, formatedCreatedAt, task.Title, task.Description, task.TaskPriority,
+		task.UserName, formatedStatus, formatedDoneAt, formatedDeletion, formatedDeletedAt)
 }
 
 func UpdateTask(id int) {
@@ -161,7 +220,7 @@ func ShowDoneTasks() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(tasks)
+	printTasksToConsole(tasks)
 }
 
 func ShowDeletedTasks() {
@@ -169,5 +228,5 @@ func ShowDeletedTasks() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(tasks)
+	printTasksToConsole(tasks)
 }

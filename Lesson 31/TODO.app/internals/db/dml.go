@@ -9,8 +9,10 @@ const (
 							   tp.priority,
 							   t.user_name,
 							   t.created_at, 
-							   t.is_done, 
-							   t.is_deleted
+							   t.is_done,
+							   COALESCE(t.done_at, '0001-01-01 00:00:00') AS done_at,
+							   t.is_deleted,
+							   COALESCE(t.deleted_at, '0001-01-01 00:00:00') AS deleted_at
 						FROM tasks t
 								 JOIN task_priorities tp ON t.task_priority_id = tp.id`
 	GetTasksByIDQuery = `SELECT t.id, 
@@ -19,8 +21,10 @@ const (
 							   tp.priority,
 							   t.user_name,
 							   t.created_at, 
-							   t.is_done, 
-							   t.is_deleted
+							   t.is_done,
+							   COALESCE(t.done_at, '0001-01-01 00:00:00') AS done_at,
+							   t.is_deleted,
+							   COALESCE(t.deleted_at, '0001-01-01 00:00:00') AS deleted_at
 						FROM tasks t
 								 JOIN task_priorities tp ON t.task_priority_id = tp.id
 						WHERE t.id = $1;`
@@ -48,29 +52,30 @@ const (
 							   tp.priority,
 							   t.user_name,
 							   t.created_at, 
-							   t.is_done, 
-							   t.done_at, 
-							   t.is_deleted, 
+							   t.is_done,
+							   COALESCE(t.done_at, '0001-01-01 00:00:00') AS done_at,
+							   t.is_deleted,
+							   COALESCE(t.deleted_at, '0001-01-01 00:00:00') AS deleted_at
 						FROM tasks t
 								 JOIN task_priorities tp ON t.task_priority_id = tp.id
 								 WHERE t.is_done = TRUE;`
 	GetDeletedTasksQuery = `SELECT t.id, 
-							   t.title, 
-							   t.description, 
-							   tp.priority,
-							   t.user_name,
-							   t.created_at, 
-							   t.is_done, 
-							   t.done_at, 
-							   t.is_deleted, 
-							   t.deleted_at
-						FROM tasks t
-								 JOIN task_priorities tp ON t.task_priority_id = tp.id
-								 WHERE t.deleted = TRUE;`
+								   t.title, 
+								   t.description, 
+								   tp.priority,
+								   t.user_name,
+								   t.created_at, 
+								   t.is_done,
+								   COALESCE(t.done_at, '0001-01-01 00:00:00') AS done_at,
+								   t.is_deleted,
+								   COALESCE(t.deleted_at, '0001-01-01 00:00:00') AS deleted_at
+							FROM tasks t
+									 JOIN task_priorities tp ON t.task_priority_id = tp.id
+									 WHERE t.is_deleted = TRUE;`
 	UpdateTaskUserNameByIDQuery = `UPDATE tasks
 									SET user_name = $1
 									WHERE id = $2;`
 	UpdateTaskPriorityByIDQuery = `UPDATE tasks
-										SET priority_id = $1
+										SET task_priority_id = $1
 										WHERE id = $2;`
 )
