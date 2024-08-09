@@ -6,8 +6,7 @@ import (
 )
 
 func SetNewTaskToDB(task models.Task) error {
-	_, err := db.GetDBConnection().
-		Exec(db.CreateTaskQuery, task.Title, task.Description, task.TaskPriorityID, task.UserName)
+	_, err := db.GetDBConnection().Exec(db.CreateTaskQuery, task.Title, task.Description, task.TaskPriorityID, task.UserName)
 	if err != nil {
 		return err
 	}
