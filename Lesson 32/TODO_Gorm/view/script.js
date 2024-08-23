@@ -1,58 +1,75 @@
-document.getElementById('todo-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const taskInput = document.getElementById('new-task');
-    const taskText = taskInput.value.trim();
-
-    if (taskText !== '') {
-        addTaskToList(taskText);
-        taskInput.value = '';
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    fetchTasks();
 });
 
-function addTaskToList(taskText) {
-    const taskList = document.getElementById('task-list');
-
-    const li = document.createElement('li');
-    li.textContent = taskText;
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'delete';
-    deleteButton.onclick = function() {
-        taskList.removeChild(li);
-    };
-
-    const doneButton = document.createElement('button');
-    doneButton.textContent = 'Done';
-    doneButton.className = 'done';
-    doneButton.onclick = function() {
-        li.classList.toggle('completed');
-    };
-
-    li.appendChild(doneButton);
-    li.appendChild(deleteButton);
-
-    taskList.appendChild(li);
-
+function fetchTasks() {
     fetch('http://localhost:8080/tasks')
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            const tasksDiv = document.getElementById('tasks');
+            tasksDiv.innerHTML = '';
+            data.forEach(task => {
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'task';
+                taskDiv.innerHTML = `
+                    <h3>${task.Title}</h3>
+                    <p>${task.Description}</p>
+                    <p>Ответственный: ${task.UserName}</p>
+                    <p>Приоритет: ${task.TaskPriority.Priority}</p>
+                    <p>Статус: ${task.IsDone ? 'Сделано' : 'Не сделано'}</p>
+                    <button onclick="deleteTask(${task.ID})">Удалить</button>
+                    <button onclick="markAsDone(${task.ID})">Отметить как выполненное</button>
+                `;
+                tasksDiv.appendChild(taskDiv);
+            });
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
 
-// Пример создания новой задачи
+function addTask() {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const userName = document.getElementById('userName').value;
+    const priority = document.getElementById('priority').value;
+
+    const task = {
+        Title: title,
+        Description: description,
+        UserName: userName,
+        TaskPriorityID: parseInt(priority),
+    };
+
     fetch('http://localhost:8080/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            title: 'Новая задача',
-            description: 'Описание новой задачи',
-            task_priority_id: 2,
-            user_name: 'Vasya',
-        }),
+        body: JSON.stringify(task),
     })
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            console.log('Успех:', data);
+            fetchTasks();
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
+
+function deleteTask(id) {
+    fetch(`http://localhost:8080/tasks/${id}`, {
+        method: 'DELETE',
+    })
+        .then(() => {
+            fetchTasks();
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
+
+function markAsDone(id) {
+    fetch(`http://localhost:8080/tasks/${id}/done`, {
+        method: 'PUT',
+    })
+        .then(() => {
+            fetchTasks();
+        })
+        .catch(error => console.error('Ошибка:', error));
 }

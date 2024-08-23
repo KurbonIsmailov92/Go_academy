@@ -1,0 +1,15 @@
+2024/08/21 17:18:19.725421 [repository] Error getting task: record not found
+2024/08/21 17:18:19.726764 [service] Failed to get task by id: record not found
+2024/08/21 17:18:19.726764 [controller] Failed to get task by id: record not found
+2024/08/23 14:59:55.320936 [repository] Error getting task: record not found
+2024/08/23 15:00:52.134179 [controller] Invalid task ID: strconv.Atoi: parsing "2delete": invalid syntax
+2024/08/23 15:01:22.137443 [controller] Invalid task ID: strconv.Atoi: parsing "2undone": invalid syntax
+2024/08/23 16:31:46.372600 [controllers] Invalid task ID: strconv.Atoi: parsing "sign-in": invalid syntax
+2024/08/23 16:35:49.852371 [controller-auth] Failed to bind JSON to struct: EOF
+2024/08/23 16:36:20.730022 [controller-auth] Failed to bind JSON to struct: EOF
+2024/08/23 16:36:36.493896 [repository] Error creating new user: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uni_users_username" (SQLSTATE 23505)
+2024/08/23 16:36:56.051730 [repository] Error getting user: record not found
+2024/08/23 16:36:56.053239 [repository] Error creating new user: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uni_users_email" (SQLSTATE 23505)
+2024/08/23 16:37:05.940823 [repository] Error getting user: record not found
+2024/08/23 16:37:25.856172 [controller-auth] Failed to bind JSON to struct: EOF
+2024/08/23 16:45:47.175481 [repository] Error creating new user: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uni_users_username" (SQLSTATE 23505)

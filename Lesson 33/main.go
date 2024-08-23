@@ -44,7 +44,7 @@ type DefaultResponse struct {
 
 var tasks []Task
 
-func GetAllTasks(w http.ResponseWriter, r *http.Request) {
+func GetAllTasks(w http.ResponseWriter, _ *http.Request) {
 	task1 := Task{
 		ID:             1,
 		Title:          "Приветствие",

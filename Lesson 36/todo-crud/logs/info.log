@@ -1,0 +1,207 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (3 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (3 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (3 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (3 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (3 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (3 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/08/21 17:09:31.449794 PingPong said HELLO
+[GIN] 2024/08/21 - 17:09:31 | 200 |     49.2131ms |             ::1 | GET      "/ping"
+2024/08/21 17:17:55.176875 [repository] Got all users
+2024/08/21 17:17:55.179235 [service] Successfully got all users: [{1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} {2 Vasya 83962631d05d39a3ade57a1027e602d887236d1d311cd9cf07ed259d03b1e293 Vasili Kozlov nagibator@mail.com true 2024-08-21 16:07:22.160296 +0500 +05 0001-01-01 00:00:00 +0000 UTC}]
+2024/08/21 17:17:55.179235 [controllers] Successfully got all users: [{1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} {2 Vasya 83962631d05d39a3ade57a1027e602d887236d1d311cd9cf07ed259d03b1e293 Vasili Kozlov nagibator@mail.com true 2024-08-21 16:07:22.160296 +0500 +05 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/21 - 17:17:55 | 200 |     19.6993ms |             ::1 | GET      "/users"
+2024/08/21 17:18:01.671942 [repository] Got user: 1
+2024/08/21 17:18:01.678497 [repository] Updated user: 1
+2024/08/21 17:18:01.678497 [service] Successfully updated user by ID: {1 Qrbon bobon666 Qrboni Chol bon@mail.com false 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+2024/08/21 17:18:01.678851 [controllers] Successfully updated user: {1 Qrbon osihfwelhbfweifhwoeirhwoeirhwoeirhw Qrboni Chol bon@mail.com false 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+[GIN] 2024/08/21 - 17:18:01 | 200 |      10.177ms |             ::1 | PUT      "/users/1"
+2024/08/21 17:18:07.000366 [repository] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC} {3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}]
+2024/08/21 17:18:07.000990 [service] Retrieved all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC} {3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}]
+2024/08/21 17:18:07.000990 [controller] Get all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC} {3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}]
+[GIN] 2024/08/21 - 17:18:07 | 200 |      23.614ms |             ::1 | GET      "/tasks"
+2024/08/21 17:18:14.950265 [repository] Got task: 2
+2024/08/21 17:18:14.950265 [service] Retrieved task by id: {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}
+2024/08/21 17:18:14.950576 [controller] Get task by id: {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}
+[GIN] 2024/08/21 - 17:18:14 | 200 |      5.9311ms |             ::1 | GET      "/tasks/2"
+[GIN] 2024/08/21 - 17:18:19 | 404 |     16.9511ms |             ::1 | GET      "/tasks/222"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (3 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (3 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (3 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (3 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (3 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (3 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/08/23 14:59:06.610659 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC} {3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}]
+[GIN] 2024/08/23 - 14:59:06 | 200 |      25.625ms |             ::1 | GET      "/tasks"
+2024/08/23 14:59:31.711520 [controller] Got all done tasks: [{2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-21 14:38:23.714585 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 14:59:31 | 200 |      7.8939ms |             ::1 | GET      "/tasks/done"
+2024/08/23 14:59:50.015084 [controller] Got all done tasks: [{3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}]
+[GIN] 2024/08/23 - 14:59:50 | 200 |      2.8949ms |             ::1 | GET      "/tasks/deleted"
+[GIN] 2024/08/23 - 14:59:55 | 404 |      5.0016ms |             ::1 | GET      "/tasks/222"
+2024/08/23 15:00:01.697440 [controller] Got task by id: {3 bye2 bye bye bye222 1 {1 Urgent} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 05:00:00 +0500 +05 true 2024-08-21 14:39:28.757227 +0500 +05}
+[GIN] 2024/08/23 - 15:00:01 | 200 |      2.5083ms |             ::1 | GET      "/tasks/3"
+2024/08/23 15:00:18.649706 [controller] Update task by id: {0 bye bye bye bye 4 {0 } 1 {0     false 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC} 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC}
+[GIN] 2024/08/23 - 15:00:18 | 200 |     21.2889ms |             ::1 | PUT      "/tasks/3"
+[GIN-debug] redirecting request 307: /tasks/3 --> /tasks/3
+2024/08/23 15:00:29.438854 [controller] Done task by id: 3
+[GIN] 2024/08/23 - 15:00:29 | 200 |      2.4324ms |             ::1 | PATCH    "/tasks/3"
+2024/08/23 15:00:38.647494 [controller] Delete task by id: 3222
+[GIN] 2024/08/23 - 15:00:38 | 200 |      5.0754ms |             ::1 | PATCH    "/tasks/3222/delete"
+[GIN] 2024/08/23 - 15:00:52 | 400 |            0s |             ::1 | PATCH    "/tasks/2delete"
+2024/08/23 15:01:04.229289 [controller] Delete task by id: 2
+[GIN] 2024/08/23 - 15:01:04 | 200 |      4.2206ms |             ::1 | PATCH    "/tasks/2/delete"
+[GIN] 2024/08/23 - 15:01:10 | 200 |     11.6841ms |             ::1 | PATCH    "/tasks/2/undone"
+[GIN] 2024/08/23 - 15:01:16 | 200 |      3.0478ms |             ::1 | PATCH    "/tasks/2121212/undone"
+[GIN] 2024/08/23 - 15:01:22 | 400 |            0s |             ::1 | PATCH    "/tasks/2undone"
+[GIN] 2024/08/23 - 15:01:35 | 200 |     10.4351ms |             ::1 | PATCH    "/tasks/2/undone"
+2024/08/23 15:01:42.229420 [controller] Canceled task deletion: 3
+[GIN] 2024/08/23 - 15:01:42 | 200 |      6.1456ms |             ::1 | PATCH    "/tasks/3/return"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (3 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (3 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (3 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (3 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (3 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (3 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2024/08/23 - 16:28:08 | 404 |            0s |             ::1 | GET      "/tasks//sign-in"
+2024/08/23 16:28:54.261998 PingPong said HELLO
+[GIN] 2024/08/23 - 16:28:54 | 200 |      1.8392ms |             ::1 | GET      "/ping"
+[GIN] 2024/08/23 - 16:29:55 | 404 |            0s |             ::1 | GET      "/tasks//sign-in"
+[GIN] 2024/08/23 - 16:30:34 | 404 |            0s |             ::1 | GET      "/tasks//sign-in"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (3 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (3 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (3 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (3 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (3 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (3 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (3 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2024/08/23 - 16:31:39 | 404 |            0s |             ::1 | GET      "/tasks//sign-in"
+[GIN] 2024/08/23 - 16:31:46 | 400 |       2.069ms |             ::1 | GET      "/tasks/sign-in"
+[GIN] 2024/08/23 - 16:32:15 | 404 |            0s |             ::1 | GET      "/auth/sign-in"
+[GIN] 2024/08/23 - 16:32:50 | 404 |            0s |             ::1 | GET      "/auth"
+[GIN] 2024/08/23 - 16:33:32 | 404 |            0s |             ::1 | GET      "//sign-in"
+[GIN] 2024/08/23 - 16:33:38 | 404 |            0s |             ::1 | GET      "/sign-in"
+[GIN] 2024/08/23 - 16:34:01 | 404 |            0s |             ::1 | GET      "/auth/sign-up"
+[GIN] 2024/08/23 - 16:34:14 | 404 |            0s |             ::1 | GET      "/auth/sign-in"
+[GIN] 2024/08/23 - 16:35:16 | 404 |            0s |             ::1 | GET      "/auth/sign-in"
+[GIN] 2024/08/23 - 16:35:49 | 400 |      4.9151ms |             ::1 | POST     "/auth/sign-in"
+[GIN] 2024/08/23 - 16:36:20 | 400 |       9.112ms |             ::1 | POST     "/auth/sign-up"
+[GIN] 2024/08/23 - 16:36:36 | 500 |     21.3941ms |             ::1 | POST     "/auth/sign-up"
+[GIN] 2024/08/23 - 16:36:56 | 500 |      5.7504ms |             ::1 | POST     "/auth/sign-up"
+2024/08/23 16:37:05.948346 [controller-auth] Successfully created new user: {0 Vasya007 nagibator777 Vasili Kozlov nagibator007@mail.com false 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+[GIN] 2024/08/23 - 16:37:05 | 201 |     14.3902ms |             ::1 | POST     "/auth/sign-up"
+[GIN] 2024/08/23 - 16:37:25 | 400 |       459.5µs |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:38:16.322473 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6IlZhc3lhIiwiZXhwIjoxNzI0NDE2Njk2LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.1NDlmP2i5QsoNqgRZqCJRQQEwrOXhSMxIjs20lGITlk
+[GIN] 2024/08/23 - 16:38:16 | 200 |      2.7742ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:39:54.568027 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:39:54 | 200 |      5.9082ms |             ::1 | GET      "/tasks"
+2024/08/23 16:40:05.920915 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:40:05 | 200 |      2.8922ms |             ::1 | GET      "/tasks"
+2024/08/23 16:40:14.666865 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:40:14 | 200 |      6.6703ms |             ::1 | GET      "/tasks"
+2024/08/23 16:40:22.835045 [controller] Got all done tasks: [{2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05}]
+[GIN] 2024/08/23 - 16:40:22 | 200 |      9.2394ms |             ::1 | GET      "/tasks/deleted"
+2024/08/23 16:41:17.850732 [controller] Got all done tasks: [{2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05}]
+[GIN] 2024/08/23 - 16:41:17 | 200 |      5.1147ms |             ::1 | GET      "/tasks/deleted"
+2024/08/23 16:41:25.372215 [controller] Got all done tasks: [{2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05}]
+[GIN] 2024/08/23 - 16:41:25 | 200 |      5.1059ms |             ::1 | GET      "/tasks/deleted"
+2024/08/23 16:43:36.170747 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MDE2LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.WL_bQp91MGHhiNpkmXJYxSvRTPrqBpAn0oqTcaT5N_g
+[GIN] 2024/08/23 - 16:43:36 | 200 |      6.6071ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:43:52.255623 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:43:52 | 200 |      7.3471ms |             ::1 | GET      "/tasks"
+2024/08/23 16:44:08.427519 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:44:08 | 200 |       8.078ms |             ::1 | GET      "/tasks"
+2024/08/23 16:45:40.153651 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 16:45:40 | 200 |      4.2447ms |             ::1 | GET      "/tasks"
+[GIN] 2024/08/23 - 16:45:47 | 500 |      9.0316ms |             ::1 | POST     "/auth/sign-up"
+2024/08/23 16:45:58.702878 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTU4LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.1sGamUYs0I_e_HFY8LwIvawb67iTZvunRRN4RaOu5-4
+[GIN] 2024/08/23 - 16:45:58 | 200 |      4.6767ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:45:59.867288 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTU5LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.hpmnmCV-Jn1FlMAV4aK1Rad0JWKJGVsH_yS7_Ia4VVw
+[GIN] 2024/08/23 - 16:45:59 | 200 |      2.9343ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:46:01.101252 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTYxLCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.g1lY_IaGJr5peBscrCvOjnhE6-y0or-IbVYBDJIwNVI
+[GIN] 2024/08/23 - 16:46:01 | 200 |      2.5162ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:46:04.785340 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTY0LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.kB5lKbPa6I0SogSczfjNrIljxaRIElF2g3Spc9fMeDQ
+[GIN] 2024/08/23 - 16:46:04 | 200 |      3.5688ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 16:46:05.886541 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTY1LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.M9prgUTy0V2sX8dK08AeecqNSrYBRST5N8zJ48JoiMQ
+[GIN] 2024/08/23 - 16:46:05 | 200 |      4.7956ms |             ::1 | POST     "/auth/sign-in"

@@ -1,38 +1,33 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
-	"todo-gorm/internals/models"
-	"todo-gorm/internals/repository"
+	"todo-gorm/appRun"
+	"todo-gorm/internals/db"
 )
 
 func main() {
-	r := gin.Default()
+	err := db.ConnectToDB()
+	if err != nil {
+		panic(err)
+	}
 
-	r.GET("/tasks", func(c *gin.Context) {
-		tasks, err := repository.GetAllTasks()
+	defer func() {
+		err := db.CloseDBConnection()
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
+			panic(err)
 		}
-		c.JSON(http.StatusOK, tasks)
-	})
+	}()
 
-	r.POST("/tasks", func(c *gin.Context) {
-		var task models.Task
-		if err := c.ShouldBindJSON(&task); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			return
-		}
-		if err := repository.SetNewTaskToDB(task); err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
-		c.JSON(http.StatusOK, task)
-	})
+	err = db.MigrateTables()
+	if err != nil {
+		panic(err)
+	}
 
-	// Дополнительные маршруты для других операций...
+	err = db.InsertSeeds()
+	if err != nil {
+		panic(err)
+	}
 
-	r.Run(":8080")
+	appRun.Run()
+
 }

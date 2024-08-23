@@ -1,22 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO List</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .task-form {
+            margin-bottom: 20px;
+        }
+        .task {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .task h3 {
+            margin: 0;
+        }
+        .task p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>TODO List</h1>
-    <form id="todo-form">
-        <input type="text" id="new-task" placeholder="Enter a new task" required>
-        <button type="submit">Add Task</button>
-    </form>
-    <ul id="task-list">
-        <!-- Tasks will appear here -->
-    </ul>
+
+<h1>Список задач</h1>
+
+<div class="task-form">
+    <h3>Добавить новую задачу</h3>
+    <input type="text" id="title" placeholder="Название" />
+    <input type="text" id="description" placeholder="Описание" />
+    <input type="text" id="userName" placeholder="Ответственный" />
+    <select id="priority">
+        <option value="1">Срочный</option>
+        <option value="2">Высокий</option>
+        <option value="3">Средний</option>
+        <option value="4">Низкий</option>
+        <option value="5">Беклог</option>
+    </select>
+    <button onclick="addTask()">Добавить задачу</button>
 </div>
-<script src="script.js"></script>
+
+<div id="tasks">
+    <!-- Список задач будет отображаться здесь -->
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
