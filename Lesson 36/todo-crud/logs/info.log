@@ -205,3 +205,43 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2024/08/23 - 16:46:04 | 200 |      3.5688ms |             ::1 | POST     "/auth/sign-in"
 2024/08/23 16:46:05.886541 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDE3MTY1LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.M9prgUTy0V2sX8dK08AeecqNSrYBRST5N8zJ48JoiMQ
 [GIN] 2024/08/23 - 16:46:05 | 200 |      4.7956ms |             ::1 | POST     "/auth/sign-in"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/08/23 18:09:47.303860 [controller-midlwere] invalid token
+[GIN] 2024/08/23 - 18:09:47 | 401 |     19.3966ms |             ::1 | GET      "/tasks"
+2024/08/23 18:09:57.638246 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NDIyMTk3LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.g-zwhXSh3rUmiSDZEJqxV-aMsTEspL9IV8Yj3FL7y5A
+[GIN] 2024/08/23 - 18:09:57 | 200 |      5.6569ms |             ::1 | POST     "/auth/sign-in"
+2024/08/23 18:10:23.539001 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 18:10:23 | 200 |      8.7169ms |             ::1 | GET      "/tasks"
+2024/08/23 18:10:31.613227 [controller-midlwere] invalid token
+[GIN] 2024/08/23 - 18:10:31 | 401 |            0s |             ::1 | GET      "/tasks"
+2024/08/23 18:10:42.719441 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 18:10:42 | 200 |      8.6278ms |             ::1 | GET      "/tasks"
+2024/08/23 18:11:20.899688 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/23 - 18:11:20 | 200 |       5.225ms |             ::1 | GET      "/tasks"

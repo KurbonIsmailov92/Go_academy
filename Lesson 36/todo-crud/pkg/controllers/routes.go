@@ -28,7 +28,7 @@ func RunRoutes() error {
 
 	}
 
-	tasksG := router.Group("/tasks")
+	tasksG := router.Group("/tasks", checkUserAuthentication)
 	{
 		tasksG.GET("", GetAllTasks)
 		tasksG.GET(":id", GetTaskByID)
