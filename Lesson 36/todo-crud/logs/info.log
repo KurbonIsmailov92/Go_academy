@@ -245,3 +245,287 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2024/08/23 - 18:10:42 | 200 |      8.6278ms |             ::1 | GET      "/tasks"
 2024/08/23 18:11:20.899688 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
 [GIN] 2024/08/23 - 18:11:20 | 200 |       5.225ms |             ::1 | GET      "/tasks"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/08/26 18:03:23.912562 [controller-midlwere] invalid token
+[GIN] 2024/08/26 - 18:03:23 | 401 |     17.9886ms |             ::1 | GET      "/tasks"
+2024/08/26 18:04:11.494824 [controllers] Successfully got all users: [{1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} {2 Vasya 83962631d05d39a3ade57a1027e602d887236d1d311cd9cf07ed259d03b1e293 Vasili Kozlov nagibator@mail.com true 2024-08-21 16:07:22.160296 +0500 +05 0001-01-01 00:00:00 +0000 UTC} {5 Vasya007 78f3787dbcf4b91391944d42833e72fdbce8c1992f44ea4554383b9ae5475763 Vasili Kozlov nagibator007@mail.com true 2024-08-23 16:37:05.94152 +0500 +05 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/26 - 18:04:11 | 200 |      4.8581ms |             ::1 | GET      "/users"
+2024/08/26 18:04:37.462628 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NjgxMDc3LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.EvLNY1IlNOhEoSPQfw2h2B3Fqx6jwLYA_GzY2_0VwUY
+[GIN] 2024/08/26 - 18:04:37 | 200 |      6.5704ms |             ::1 | POST     "/auth/sign-in"
+2024/08/26 18:05:03.713658 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/26 - 18:05:03 | 200 |      7.8759ms |             ::1 | GET      "/tasks"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/08/27 13:31:55.976315 [controller-auth] Successfully signed in: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6IlZhc3lhMDA3IiwiZXhwIjoxNzI0NzUxMTE1LCJpc3MiOiJGcm9tX3Bvc3RtYW4ifQ.ikTXmDkglwfsMB-wEFLO1jwY2S9DljLyzzzqa6nZylM
+[GIN] 2024/08/27 - 13:31:55 | 200 |     20.9846ms |             ::1 | POST     "/auth/sign-in"
+2024/08/27 13:32:20.506626 [controller] Got all tasks: [{1 hello hello world 2 {2 High} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC} {2 bye22222 bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC true 2024-08-23 15:01:04.225068 +0500 +05} {3 bye bye bye bye 4 {4 Low} 1 {1 Qrbon bobon666 Qrboni Chol bon@mail.com true 2024-08-21 14:13:06.985026 +0500 +05 0001-01-01 00:00:00 +0000 UTC} 2024-08-21 19:14:43.686 +0500 +05 true 2024-08-23 15:00:29.437553 +0500 +05 false 0001-01-01 00:00:00 +0000 UTC}]
+[GIN] 2024/08/27 - 13:32:20 | 200 |      7.2016ms |             ::1 | GET      "/tasks"
+2024/08/27 13:32:29.791072 [controller-midlwere] empty auth header
+[GIN] 2024/08/27 - 13:32:29 | 401 |            0s |             ::1 | GET      "/tasks/3"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/09/02 19:05:56.132624 PingPong said HELLO
+[GIN] 2024/09/02 - 19:05:56 | 200 |     21.4841ms |             ::1 | GET      "/ping"
+2024/09/02 19:06:06.530642 PingPong said HELLO
+[GIN] 2024/09/02 - 19:06:06 | 200 |       2.687ms |             ::1 | GET      "/ping"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong.func1 (3 handlers)
+2024/09/02 19:13:42.981740 PingPong said HELLO
+[GIN] 2024/09/02 - 19:13:42 | 200 |     16.5714ms |             ::1 | GET      "/ping"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+2024/09/02 19:15:26.209559 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |     18.3693ms |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:26.230274 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |        69.3µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:26.232474 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |       640.6µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:26.233920 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |         138µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:26.235990 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |       479.3µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:26.237970 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:26 | 301 |       830.8µs |             ::1 | GET      "/ping"
+2024/09/02 19:15:33.405747 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |      2.6843ms |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:33.407156 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |       560.1µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:33.408585 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |       389.3µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:33.409092 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |            0s |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:33.409898 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |            0s |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:33.411379 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:33 | 301 |       457.7µs |             ::1 | GET      "/ping"
+2024/09/02 19:15:34.526656 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |      5.3345ms |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:34.528603 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |       110.5µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:34.529800 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |            0s |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:34.531092 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |       586.7µs |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:34.532385 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |            0s |             ::1 | GET      "/ping"
+[GIN-debug] redirecting request 301: /ping --> /ping
+2024/09/02 19:15:34.533842 PingPong said HELLO
+[GIN] 2024/09/02 - 19:15:34 | 301 |       297.1µs |             ::1 | GET      "/ping"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2024/09/02 - 19:18:20 | 200 |     35.0853ms |             ::1 | GET      "/ping"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> todo-crud/pkg/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> todo-crud/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> todo-crud/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> todo-crud/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> todo-crud/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> todo-crud/pkg/controllers.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> todo-crud/pkg/controllers.UpdateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> todo-crud/pkg/controllers.DeActivateUser (3 handlers)
+[GIN-debug] PATCH  /users/:id/active         --> todo-crud/pkg/controllers.ActivateUser (3 handlers)
+[GIN-debug] GET    /tasks                    --> todo-crud/pkg/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> todo-crud/pkg/controllers.GetTaskByID (4 handlers)
+[GIN-debug] POST   /tasks                    --> todo-crud/pkg/controllers.CreateNewTask (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> todo-crud/pkg/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] GET    /tasks/done               --> todo-crud/pkg/controllers.GetDoneTasks (4 handlers)
+[GIN-debug] GET    /tasks/deleted            --> todo-crud/pkg/controllers.GetDeletedTask (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> todo-crud/pkg/controllers.DoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/undone         --> todo-crud/pkg/controllers.UnDoneTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/delete         --> todo-crud/pkg/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id/return         --> todo-crud/pkg/controllers.CancelTaskDeletion (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2024/09/14 - 16:50:10 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:10 | 404 |            0s |             ::1 | GET      "/favicon.ico"
+[GIN] 2024/09/14 - 16:50:27 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:29 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:30 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:30 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:31 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:31 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:50:40 | 404 |            0s |             ::1 | GET      "/swagger"

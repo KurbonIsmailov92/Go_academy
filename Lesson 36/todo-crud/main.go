@@ -10,7 +10,6 @@ func main() {
 	if err := logger.Init(); err != nil {
 		panic(err)
 	}
-
 	if err := db.ConnectToDB(); err != nil {
 		panic(err)
 	}
@@ -25,7 +24,6 @@ func main() {
 		if err != nil {
 		}
 	}()
-
 	if err := controllers.RunRoutes(); err != nil {
 		panic(err)
 	}

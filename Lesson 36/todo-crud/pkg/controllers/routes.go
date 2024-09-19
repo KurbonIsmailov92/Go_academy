@@ -2,8 +2,6 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"todo-crud/logger"
 )
 
 func RunRoutes() error {
@@ -51,14 +49,8 @@ func RunRoutes() error {
 }
 
 func PingPong(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"pong": []string{
-			"██╗  ██╗███████╗██╗     ██╗      ██████╗ ",
-			"██║  ██║██╔════╝██║     ██║     ██╔═══██╗",
-			"███████║█████╗  ██║     ██║     ██║   ██║",
-			"██╔══██║██╔══╝  ██║     ██║     ██║   ██║",
-			"██║  ██║███████╗███████╗███████╗╚██████╔╝",
-			"╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ "},
-	})
-	logger.Info.Println("PingPong said HELLO")
+	filename := "logo.jpg"
+	filepath := "./uploads/" + filename
+
+	c.File(filepath)
 }
